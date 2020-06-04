@@ -1,7 +1,16 @@
 $(document).ready(function() {
   $("form#age").submit(function(event){
     event.preventDefault();
-    const dob = $("#born").val();
+    const dob = parseInt($("#born").val());
+
+    let age = $('date') - dob;
     
+    if (age > 18) {
+      $('.over18').show();
+    } else if (age === 18) {
+      $('.ofAge').show();
+    } else if (age < 18) {
+      $('.under18').show();
+    }
   });
 });
